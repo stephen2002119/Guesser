@@ -57,3 +57,13 @@ TEST(GuesserTest, distance_ld_one_lt_sl) {
   Guesser object("Secret");
   ASSERT_EQ(object.distance("sECREt"), 5);
 }
+
+
+TEST(GuesserTest, match_lock_when_dist_gt_two) {
+  Guesser object("Secret");
+  ASSERT_EQ(object.match("SecRET"), false);
+}
+TEST(GuesserTest, match_lock_when_dist_eq_two) {
+  Guesser object("Secret");
+  ASSERT_EQ(object.match("SecREt"), true);
+}
